@@ -17,6 +17,11 @@
                     </h2>                   
                     <p class='body'>{{ $post->body }}</p>
                 </div>
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">delete</button> 
+                </form>
             @endforeach
         </div>
         <div class='paginate'>
