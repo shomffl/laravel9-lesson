@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-       
-        <h1>Blog Name</h1>
-        [<a href='/posts/create'>create</a>]
-        <div class='posts'>
+<x-app-layout>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Blog Name') }}
+        </h2>
+    </x-slot>
+
+    <div class='max-w-7xl mx-auto'>
+
+        [<a class="border-b-2 border-sky-300" href='/posts/create'>create</a>]
+    
+        <div>
             @foreach ($posts as $post)
                 <div class='post'>
                     <h2 class='title'>
@@ -31,8 +31,9 @@
                
             @endforeach
         </div>
+
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
-    </body>
-</html>
+    </div>
+</x-app-layout>
